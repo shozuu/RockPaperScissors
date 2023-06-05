@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScissors</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice()
+        {
+            const choices = ['rock', 'paper', 'scissors'];
+            const random = Math.floor(Math.random() * choices.length); //since math.random generates random number between 0 and 1, multiplying it to the number of indexes of the string and rounding it down using math.floor generates random number from 0 up to the string length (3)
+            return choices[random];
+        }
+
+        function playRound(playerSelection, computerSelection)
+        {
+            playerSelection = playerSelection.toLowerCase();
+            computerSelection = computerSelection.toLowerCase();
+
+            switch(playerSelection)
+            {
+                case 'rock':
+
+                    if (computerSelection == 'scissors')
+                    return 'You won! rock beats scissors';
+
+                    else if (computerSelection == 'paper')
+                    return 'You lost! rock was beaten by paper';
+
+                    else
+                    return 'Tie! rock equals rock';
+                    break;
+
+                case 'paper':
+
+                    if (computerSelection == 'rock')
+                    return 'You won! paper beats rock';
+
+                    else if (computerSelection == 'scissors')
+                    return 'You lost! paper was beaten by scissors';
+
+                    else
+                    return 'Tie! paper equals paper';
+                    break;
+
+                case 'scissors':
+
+                    if (computerSelection == 'rock')
+                    return 'You lost! scissors was beaten by rock';
+
+                    else if (computerSelection == 'paper')
+                    return 'You won! scissors beats paper';
+
+                    else
+                    return 'Tie! scissors equals scissors';
+                    break;
+
+                default :
+                    return 'please enter a valid choice. (e.g. "rock, paper, scissors")';
+                    break;
+            } 
+        }
+        
+        let playerChoice = prompt('what your choice will be?' );
+        console.log(playRound(playerChoice, getComputerChoice()));
+
+    </script>
+</body>
+</html>
