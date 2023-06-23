@@ -1,5 +1,6 @@
-const choice = document.querySelector('.choices');
-const result = document.querySelector('.result');
+const choice = document.querySelector('.choices-container');
+const text1 = document.querySelector('.text1');
+const text2 = document.querySelector('.text2');
 const player = document.querySelector('.playerScore');
 const computer = document.querySelector('.computerScore');
 let pScore = 0;
@@ -36,76 +37,75 @@ function playRound(playerSelection, computerSelection)
         case 'rock':
             if (computerSelection == 'scissors')
             {
-                result.textContent = 'You won! rock beats scissors';
+                text1.textContent = 'You won!';
+                text2.textContent = 'Rock beats scissors';
                 scoreHandler(true);
             }
                 
             else if (computerSelection == 'paper')
             {
-                result.textContent = 'You lost! rock was beaten by paper';
+                text1.textContent = 'You lost!';
+                text2.textContent = 'Rock was beaten by paper';
                 scoreHandler(false);
             }
 
             else
             {
-                result.textContent = 'Tie! rock equals rock';
+                text1.textContent = "It's a tie!";
+                text2.textContent = 'Rock ties rock';
                 break;
             }
-                
 
             break;
 
         case 'paper':
-
             if (computerSelection == 'rock')
             {
-                result.textContent = 'You won! paper beats rock';
+                text1.textContent = 'You won!';
+                text2.textContent = 'Paper beats rock';
                 scoreHandler(true);
             }
-                
 
             else if (computerSelection == 'scissors')
             {
-                result.textContent = 'You lost! paper was beaten by scissors';
+                text1.textContent = 'You lost!';
+                text2.textContent = 'Paper was beaten by scissors';
                 scoreHandler(false);
             }
-                
 
             else
             {
-                result.textContent = 'Tie! paper equals paper';
+                text1.textContent = "It's a tie!";
+                text2.textContent = 'Paper ties paper';
                 break;
             }
                 
-
             break;
 
         case 'scissors':
             if (computerSelection == 'rock')
             {
-                result.textContent = 'You lost! scissors was beaten by rock';
+                text1.textContent = 'You lost!';
+                text2.textContent = 'Scissors was beaten by rock';
                 scoreHandler(false);
             }
-                
 
             else if (computerSelection == 'paper')
             {
-                result.textContent = 'You won! scissors beats paper';
+                text1.textContent = 'You won!';
+                text2.textContent = 'Scissors beats paper';
                 scoreHandler(true);
-            }
-                
+            }   
 
             else
             {
-                result.textContent = 'Tie! scissors equals scissors';
+                text1.textContent = "It's a tie!";
+                text2.textContent = 'Scissors ties scissors';
                 break;
             }
                 
             break;
 
-        default :
-            result.textContent = 'please enter a valid choice. (e.g. "rock, paper, scissors")';
-            break;
     }
 }
 
@@ -114,9 +114,9 @@ function game(e)
     if (pScore == 5 || cScore == 5)
     {
         if (pScore > cScore)
-            result.textContent = 'congrats you won!';
+            text2.textContent = 'congrats you won!';
         else   
-            result.textContent = 'you lost';
+            text2.textContent = 'you lost';
 
         return;
     }
