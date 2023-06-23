@@ -4,106 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src = "script.js" defer></script>
     <title>RockPaperScissors</title>
 </head>
 <body>
-    <script>
+    <div class="choices">
+        <button data-choice = "rock">rock</button>
+        <button data-choice = "paper">paper</button>
+        <button data-choice = "scissors">scissors</button>
+    </div>
 
-        let playerScore = 0; //made it a global variable so that its accessible anywhere
-        let computerScore = 0;
-
-        function getComputerChoice()
-        {
-            const choices = ['rock', 'paper', 'scissors'];
-            const random = Math.floor(Math.random() * choices.length); //since math.random generates random number between 0 and 1, multiplying it to the number of indexes of the string and rounding it down using math.floor generates random number from 0 up to the string length (3)
-            return choices[random];
-        }
-
-        function playRound(playerSelection, computerSelection)
-        {
-            playerSelection = playerSelection.toLowerCase();
-            computerSelection = computerSelection.toLowerCase();
-
-            switch(playerSelection)
-            {
-                case 'rock':
-
-                    if (computerSelection == 'scissors')
-                    {
-                        playerScore = playerScore + 1;
-                        return 'You won! rock beats scissors';
-                    }
-                    
-
-                    else if (computerSelection == 'paper')
-                    {
-                        computerScore = computerScore + 1;
-                        return 'You lost! rock was beaten by paper';
-                    }
-                    
-
-                    else
-                    {
-                        return 'Tie! rock equals rock';
-                        break;
-                    }
-                    
-
-                case 'paper':
-
-                    if (computerSelection == 'rock')
-                    return 'You won! paper beats rock';
-
-                    else if (computerSelection == 'scissors')
-                    return 'You lost! paper was beaten by scissors';
-
-                    else
-                    return 'Tie! paper equals paper';
-                    break;
-
-                case 'scissors':
-
-                    if (computerSelection == 'rock')
-                    return 'You lost! scissors was beaten by rock';
-
-                    else if (computerSelection == 'paper')
-                    return 'You won! scissors beats paper';
-
-                    else
-                    return 'Tie! scissors equals scissors';
-                    break;
-
-                default :
-                    return 'please enter a valid choice. (e.g. "rock, paper, scissors")';
-                    break;
-            } 
-        }
-        
-        function game()
-        {
-            let playerChoice;
-            let i = 1;
-
-            while (playerScore !== 5 && computerScore !== 5)
-            {
-                playerChoice = prompt(`game number ${i} : what your choice will be? `);
-                console.log(playRound(playerChoice, getComputerChoice()));
-                console.log(`player = ${playerScore}`);
-                console.log(`computer = ${computerScore}`);
-                i++;
-            }
-            
-            if (playerScore > computerScore) {
-            console.log('congratulations! you won!');
-            alert('congratulations! you won!'); }
-
-            else {
-            console.log('better luck next time, you lost');
-            alert('better luck next time, you lost'); }
-        }
-
-    game();
-        
-    </script>
+    <div class="result">hello</div>
+    <div class="playerScore">player score : </div>
+    <div class="computerScore">computer score : </div>
 </body>
 </html>
