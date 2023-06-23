@@ -3,6 +3,8 @@ const text1 = document.querySelector('.text1');
 const text2 = document.querySelector('.text2');
 const player = document.querySelector('.playerScore');
 const computer = document.querySelector('.computerScore');
+const playerSign = document.querySelector('.playerSign');
+const computerSign = document.querySelector('.computerSign');
 let pScore = 0;
 let cScore = 0;
 
@@ -18,13 +20,13 @@ function scoreHandler(flag)
     if (flag)
     {
         pScore++;
-        player.textContent = 'player score : ' + `${pScore}`;
+        player.textContent = 'Player:  ' + `${pScore}`;
     }
 
     else
     {
         cScore++
-        computer.textContent = 'computer score : ' + `${cScore}`;
+        computer.textContent = 'Computer:  ' + `${cScore}`;
     }
 }
 
@@ -37,6 +39,8 @@ function playRound(playerSelection, computerSelection)
         case 'rock':
             if (computerSelection == 'scissors')
             {
+                playerSign.textContent = '✊';
+                computerSign.textContent = '✌';
                 text1.textContent = 'You won!';
                 text2.textContent = 'Rock beats scissors';
                 scoreHandler(true);
@@ -44,6 +48,8 @@ function playRound(playerSelection, computerSelection)
                 
             else if (computerSelection == 'paper')
             {
+                playerSign.textContent = '✊';
+                computerSign.textContent = '✋';
                 text1.textContent = 'You lost!';
                 text2.textContent = 'Rock was beaten by paper';
                 scoreHandler(false);
@@ -51,6 +57,8 @@ function playRound(playerSelection, computerSelection)
 
             else
             {
+                playerSign.textContent = '✊';
+                computerSign.textContent = '✊';
                 text1.textContent = "It's a tie!";
                 text2.textContent = 'Rock ties rock';
                 break;
@@ -61,6 +69,8 @@ function playRound(playerSelection, computerSelection)
         case 'paper':
             if (computerSelection == 'rock')
             {
+                playerSign.textContent = '✋';
+                computerSign.textContent = '✊';
                 text1.textContent = 'You won!';
                 text2.textContent = 'Paper beats rock';
                 scoreHandler(true);
@@ -68,6 +78,8 @@ function playRound(playerSelection, computerSelection)
 
             else if (computerSelection == 'scissors')
             {
+                playerSign.textContent = '✋';
+                computerSign.textContent = '✌';
                 text1.textContent = 'You lost!';
                 text2.textContent = 'Paper was beaten by scissors';
                 scoreHandler(false);
@@ -75,6 +87,8 @@ function playRound(playerSelection, computerSelection)
 
             else
             {
+                playerSign.textContent = '✋';
+                computerSign.textContent = '✋';
                 text1.textContent = "It's a tie!";
                 text2.textContent = 'Paper ties paper';
                 break;
@@ -85,6 +99,8 @@ function playRound(playerSelection, computerSelection)
         case 'scissors':
             if (computerSelection == 'rock')
             {
+                playerSign.textContent = '✌';
+                computerSign.textContent= '✊';
                 text1.textContent = 'You lost!';
                 text2.textContent = 'Scissors was beaten by rock';
                 scoreHandler(false);
@@ -92,6 +108,8 @@ function playRound(playerSelection, computerSelection)
 
             else if (computerSelection == 'paper')
             {
+                playerSign.textContent = '✌';
+                computerSign.textContent = '✋';
                 text1.textContent = 'You won!';
                 text2.textContent = 'Scissors beats paper';
                 scoreHandler(true);
@@ -99,6 +117,8 @@ function playRound(playerSelection, computerSelection)
 
             else
             {
+                playerSign.textContent = '✌';
+                computerSign.textContent = '✌';
                 text1.textContent = "It's a tie!";
                 text2.textContent = 'Scissors ties scissors';
                 break;
@@ -114,9 +134,9 @@ function game(e)
     if (pScore == 5 || cScore == 5)
     {
         if (pScore > cScore)
-            text2.textContent = 'congrats you won!';
+            text2.textContent = '';
         else   
-            text2.textContent = 'you lost';
+            text2.textContent = '';
 
         return;
     }
