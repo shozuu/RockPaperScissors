@@ -53,7 +53,7 @@
 
 .result-container{
     background-color: #430222;
-    padding: 20px;
+    padding: 26px;
     display: flex;
 }
 
@@ -73,14 +73,14 @@
     align-items: center;
 }
 
-.computerSign, 
+.computerSign,
 .playerSign{
     font-size: 100px;
 }
 
 .choices-container{
     background-color: #202325;
-    padding: 50px;
+    padding: 100px;
     display: flex;
 }
 
