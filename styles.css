@@ -4,8 +4,13 @@
     padding: 0;
 }
 
+.active{
+    opacity: 0.8;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
 .width{
-    /* border: 2px solid black; */
     width: 1000px;
     margin: auto;
 }
@@ -13,6 +18,7 @@
 .header-container{
     background-color: #792a52;
     padding: 30px;
+    display: flex;
 }
 
 .header-container .width{
@@ -25,6 +31,7 @@
 .text-container{
     background-color: #792a52;
     padding: 30px;
+    display: flex;
 }
 
 .text-container .width{
@@ -47,10 +54,11 @@
 .result-container{
     background-color: #430222;
     padding: 20px;
+    display: flex;
 }
 
 .result-container .width{
-    color: #d484ad;
+    color: #fdb9db;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,6 +81,7 @@
 .choices-container{
     background-color: #202325;
     padding: 50px;
+    display: flex;
 }
 
 .choices-container .width{
@@ -80,6 +89,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .rps {
@@ -93,6 +103,7 @@
     border-radius: 10px;
     border: 1px solid #430222;
     font-size: 100px;
+    user-select: none;
 }
 
 .rps:hover {
@@ -101,12 +112,53 @@
 
 .footer-container{
     background-color: #430222;
-    padding: 50px;
+    padding: 30px;
+    display: flex;
 }
 
 .footer-container .width{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #d484ad;
+    color: #fdb9db;
+}
+
+.show-modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15%;
+    height: 20%;
+    background-color: #202325;
+    color: #fdb9db;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    gap: 25px;
+    border-radius: 20px;
+}
+
+.hide-modal{
+    display: none;
+}
+
+.prompt{
+    font-size: 35px;
+    font-weight: 800;
+}
+
+.playAgain{
+    padding: 8px;
+    font-size: 25px;
+    border-radius: 10px;
+    border: 1px solid #202325;
+    background-color: #393e46;
+    color: #fdb9db;
+}
+
+.playAgain:hover{
+    background-color: #575c64;
 }
