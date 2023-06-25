@@ -9,44 +9,51 @@
     <title>RockPaperScissors</title>
 </head>
 <body>
-    <div class="header-container">
-        <div class="width">
-            <h1 class="header">Rock Paper Scissors</h1>
-        </div>
-    </div>
-
-    <div class="text-container">
-        <div class="width">
-            <div class="text1">Choose your weapon</div>
-            <div class="text2">First to score 5 points wins the game</div>
-        </div>
-    </div>
-
-    <div class="result-container">
-        <div class="width">
-            <div class="sign-container">
-                <div class="playerSign">❔</div>
-                <div class="playerScore">Player: </div>
+    <div class="modal-effect">
+        <div class="header-container">
+            <div class="width">
+                <h1 class="header">Rock Paper Scissors</h1>
             </div>
+        </div>
     
-            <div class="sign-container">
-                <div class="computerSign">❔</div>
-                <div class="computerScore">Computer: </div>
+        <div class="text-container">
+            <div class="width">
+                <div class="text1">Choose your weapon</div>
+                <div class="text2">First to score 5 points wins the game</div>
             </div>
-            
+        </div>
+    
+        <div class="result-container">
+            <div class="width">
+                <div class="sign-container">
+                    <div class="playerSign">❔</div>
+                    <div class="playerScore">Player: </div>
+                </div>
+        
+                <div class="sign-container">
+                    <div class="computerSign">❔</div>
+                    <div class="computerScore">Computer: </div>
+                </div>
+                
+            </div>
+        </div>
+    
+        <div class="choices-container">
+            <div class="width">
+                <div class = 'rps' data-choice = "rock">✊</div> 
+                <div class = 'rps' data-choice = "paper">✋</div>
+                <div class = 'rps' data-choice = "scissors">✌</div>
+            </div>
+        </div>
+    
+        <div class="footer-container">
+            <div class="width">github @ shozuu</div>
         </div>
     </div>
 
-    <div class="choices-container">
-        <div class="width">
-            <div class = 'rps' data-choice = "rock">✊</div> 
-            <div class = 'rps' data-choice = "paper">✋</div>
-            <div class = 'rps' data-choice = "scissors">✌</div>
-        </div>
-    </div>
-
-    <div class="footer-container">
-        <div class="width">Copyright @ The Odin Project 2023</div>
+    <div class="show-modal hide-modal">
+        <div class="prompt">You won!</div>
+        <button class="playAgain">Play again</button>
     </div>
 
 </body>
