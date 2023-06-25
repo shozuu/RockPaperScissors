@@ -5,6 +5,10 @@ const player = document.querySelector('.playerScore');
 const computer = document.querySelector('.computerScore');
 const playerSign = document.querySelector('.playerSign');
 const computerSign = document.querySelector('.computerSign');
+const modal = document.querySelector('.show-modal');
+const prompt = document.querySelector('.prompt')
+const playAgain = document.querySelector('.playAgain');
+const modalEffect = document.querySelector('.modal-effect');
 let pScore = 0;
 let cScore = 0;
 
@@ -27,6 +31,18 @@ function scoreHandler(flag)
     {
         cScore++
         computer.textContent = 'Computer:  ' + `${cScore}`;
+    }
+
+    if (pScore == 5 || cScore == 5)
+    {
+        modal.classList.remove('hide-modal');
+        modalEffect.classList.add('active');
+        choice.removeEventListener('click', game);
+
+        if (pScore > cScore) 
+            prompt.textContent = 'You won!'; //you won
+        else   
+            prompt.textContent = 'You lost!'; //you lost
     }
 }
 
@@ -123,29 +139,30 @@ function playRound(playerSelection, computerSelection)
                 text2.textContent = 'Scissors ties scissors';
                 break;
             }
-                
             break;
-
     }
 }
 
 function game(e)
 {
-    if (pScore == 5 || cScore == 5)
-    {
-        if (pScore > cScore)
-            text2.textContent = '';
-        else   
-            text2.textContent = '';
+    const playerChoice = e.target.getAttribute('data-choice');
+    playRound(playerChoice, getComputerChoice());
+}
 
-        return;
-    }
-
-    else
-    {
-        const playerChoice = e.target.getAttribute('data-choice');
-        playRound(playerChoice, getComputerChoice());
-    }
+function reset()
+{
+    modal.classList.add('hide-modal');
+    modalEffect.classList.remove('active');
+    pScore = 0;
+    cScore = 0;
+    playerSign.textContent = '❔';
+    computerSign.textContent = '❔';
+    text1.textContent = 'Choose your weapon';
+    text2.textContent = 'First to score 5 points wins the game';
+    player.textContent = 'Player:  ' + `${pScore}`;
+    computer.textContent = 'Computer:  ' + `${cScore}`;
+    choice.addEventListener('click', game)
 }
 
 choice.addEventListener('click', game)
+playAgain.addEventListener('click', reset);
